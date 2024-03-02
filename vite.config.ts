@@ -17,13 +17,13 @@ export default defineConfig({
         description: 'Sentry Sync is an app allowing you to get notification from Sentry.io and manage your projects.',
         start_url: '/',
         display: 'standalone',
-        background_color: '#6c5fc7',
-        theme_color: '#03a9f4',
+        background_color: '#faf9fb',
+        theme_color: '#6c5fc7',
         icons: [
           {
-            src: '/logo_small.svg',
+            src: '/logo_small.png',
             sizes: '48x48 72x72 96x96 128x128 256x256',
-            type: 'image/svg+xml',
+            type: 'image/png',
             purpose: 'any'
           },
         ],
