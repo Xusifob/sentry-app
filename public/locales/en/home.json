@@ -1,0 +1,10 @@
+{
+  "hello": "Hello {{name}}!",
+  "one_signal_banner": {
+    "title": "Enable push notifications",
+    "content": "Enable push notification to get daily reminders and updates about your progress",
+    "accept_button": "Enable notifications",
+    "success": "Notifications enabled successfully",
+    "error": "Notifications could not be enabled"
+  }
+}

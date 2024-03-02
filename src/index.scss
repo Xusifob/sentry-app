@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  @apply bg-white;
+  @apply dark:bg-gray-800;
+  @apply shadow-md;
+}
+
+
+.nav-shadow {
+  box-shadow: 0 0 20px 5px theme('colors.primary.100');
+
+  @media (prefers-color-scheme: dark) {
+    box-shadow: 0 0 20px 5px theme('colors.gray.900');
+  }
+
+}
+
+//noinspection ALL
+.h-screen {
+  height: 100dvh;
+  max-height: -webkit-fill-available !important;
+}

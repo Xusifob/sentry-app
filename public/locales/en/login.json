@@ -1,0 +1,34 @@
+{
+  "title" : "Log-in",
+  "password" : "Password",
+  "email" : "E-mail",
+  "repeatPassword" : "Repeat your password",
+  "givenName" : "Given name",
+  "familyName" : "Family name",
+  "login_with_google" : "Sign in with Google",
+  "or" : "or",
+  "register" : "Sign Up",
+  "login" : "Log In",
+  "password_forgotten" : "Forgotten your password ?",
+
+  "success" : {
+    "register" : "You have been successfully registered !",
+    "login" : "You have been successfully logged in !"
+  },
+
+  "pricing_page" : {
+    "title" : "Please select your subscription plan"
+  },
+
+  "register_page" : {
+    "back" : "Return to login",
+    "student" : {
+      "title" : "I am a student",
+      "subtitle" : "Create a free account to practice your skills and get feedback from your teachers."
+    },
+    "teacher" : {
+      "title" : "I am a teacher",
+      "subtitle" : "Create your lessons and follow your student's progress."
+    }
+  }
+}

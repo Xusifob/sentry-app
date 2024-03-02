@@ -1,0 +1,15 @@
+{
+  "name": "Word Genius",
+  "short_name": "Word Genius",
+  "description": "Word Genius is an app helping you to save and learn new words.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f7f7fa",
+  "theme_color": "#03a9f4",
+  "icons": [{
+    "src": "/logo_small.svg",
+    "sizes": "48x48 72x72 96x96 128x128 256x256",
+    "type": "image/svg+xml",
+    "purpose": "any"
+  }]
+}
