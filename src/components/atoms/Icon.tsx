@@ -21,7 +21,7 @@ import {
   MdError,
   MdLogout,
   MdCopyAll,
-  BiChevronDown, BiChevronRight
+  BiChevronDown, BiChevronRight, IoMdEye, IoMdEyeOff
 } from "react-icons/all";
 import React, { CSSProperties } from "react";
 import Skeleton from "@/components/atoms/Skeleton";
@@ -33,6 +33,8 @@ const iconMap = {
   profile: MdOutlineAccountCircle,
   edit: AiFillEdit,
   archive: MdArchive,
+  eye: IoMdEye,
+  eyeOff : IoMdEyeOff,
   errors: MdError,
   copy: MdCopyAll,
   logout: MdLogout,

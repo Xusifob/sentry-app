@@ -1,10 +1,11 @@
-import React, { FC, ForwardRefRenderFunction, InputHTMLAttributes } from "react";
+import React, { FC, ForwardRefRenderFunction, InputHTMLAttributes, useState } from "react";
 import Label from "./Label";
 import cls from "classnames";
 import { ErrorMessage } from "@hookform/error-message";
 import Skeleton from "@/components/atoms/Skeleton";
 import { FieldErrors } from "react-hook-form";
 import { getIconByName } from "@/components/atoms/Icon";
+import Button from "@/components/atoms/Button";
 
 
 export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
@@ -37,17 +38,21 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> =
       containerClassName,
       fetching,
       id,
+      type : realType,
       className,
       ...rest
     }, ref
     ) => {
 
+      const [type,setType] = useState(realType);
 
-      if (loading && rest.type !== 'hidden') {
+
+
+      if (loading && type !== 'hidden') {
         return <InputSkeleton label={label} />;
       }
 
-      return (<div className={cls(containerClassName,'relative', { hidden: rest.type === 'hidden' })}>
+      return (<div className={cls(containerClassName,'relative', { hidden: type === 'hidden' })}>
         {label && <Label text={label} htmlFor={id} />}
         <input
           ref={ref}
@@ -58,9 +63,20 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> =
             className,
             { '!border-error-500': !!errors?.[name] }
           )}
+          type={type}
           name={name}
           {...rest}
         />
+        {realType === "password" &&
+            <Button
+              type='button'
+              color='transparent'
+              onClick={() => setType(type === 'password' ? 'text' : 'password')}
+
+              icon={type === 'password' ? 'eye' : 'eyeOff'}
+              className='absolute bottom-1 right-2'
+
+            />}
         {fetching && getIconByName('loading',{ spin: true, className: 'text-primary-500 absolute top-3 right-3' })}
         {errors ? (<ErrorMessage className='text-xs font-semibold text-error-500' as='span'
           errors={errors}
