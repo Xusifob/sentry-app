@@ -35,7 +35,15 @@ export default defineConfig({
         '/locales',
         '/script.js',
         '/logo.svg'
-      ]
+      ],
+      injectRegister: 'script', // Injects a script to register the SW
+      workbox: {
+        navigateFallback: 'index.html',
+        // Specify OneSignal service worker import in workbox config
+        importScripts: [
+          'https://cdn.onesignal.com/sdks/OneSignalSDKWorker.js'
+        ],
+      }
     }),
     react()
   ],

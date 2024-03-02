@@ -1,10 +1,10 @@
 import { QueryParams } from "@/utils/http";
 import useGet from "@/hooks/base/useGet";
 import Item from "@/schemas/Item";
-import { User } from "@sentry/react";
+import { Me } from "@/schemas/User";
 
 const useMe = (queryParams ?: QueryParams) => {
-  return useGet<Item<User>>('users', 'me', queryParams);
+  return useGet<Item<Me>>('users', 'me', queryParams);
 };
 
 export default useMe;

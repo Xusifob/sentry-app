@@ -8,9 +8,7 @@ import BaseSplashScreen from "@/components/templates/SplashScreen";
 const SplashScreen: FC = () => {
 
   const navigate = useNavigate();
-  const { error, data } = useMe({
-    include: "languages,owner,currentLanguage"
-  });
+  const { error, data } = useMe();
 
 
   useEffect(() => {
