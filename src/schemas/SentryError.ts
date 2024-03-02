@@ -14,6 +14,7 @@ type SentryError = Entity & {
         title: string,
         message: string,
         url: string,
+        exception: object,
         location: string,
         projectId: number,
         release: string,

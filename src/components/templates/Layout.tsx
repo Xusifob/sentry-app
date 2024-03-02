@@ -31,7 +31,7 @@ const Layout: FC<LayoutProps> = ({ children, title }) => {
         <div className='px-4 pt-4'>
           <H1>{title}</H1>
         </div>
-        <div className='px-4'>
+        <div className='h-[80vh] overflow-auto px-4'>
           {children}
         </div>
       </div>

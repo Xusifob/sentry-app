@@ -19,6 +19,9 @@ const useGetPaginatedCollection = <TItemType extends Entity = Entity>(path: stri
     ...queryParams
   });
 
+  const removeItem = (item : TItemType) => {
+    setData((prevState) => prevState.filter((value) => value.id !== item.id));
+  };
 
   const { meta } = backData ?? { meta: undefined };
 
@@ -84,6 +87,7 @@ const useGetPaginatedCollection = <TItemType extends Entity = Entity>(path: stri
 
   return {
     data,
+    removeItem,
     isLoading,
     onDelete,
     onUpdate,

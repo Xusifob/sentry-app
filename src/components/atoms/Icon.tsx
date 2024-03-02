@@ -11,8 +11,17 @@ import {
   MdListAlt,
   MdOutlineAccountCircle,
   MdStar,
-  MdStarBorder, MdSync,
-  MdUnarchive, FaBell, IoMdArrowForward, MdCalendarMonth, MdChevronRight, MdSettings, MdError, MdLogout
+  MdStarBorder,
+  MdSync,
+  MdUnarchive,
+  FaBell,
+  IoMdArrowForward,
+  MdCalendarMonth,
+  MdSettings,
+  MdError,
+  MdLogout,
+  MdCopyAll,
+  BiChevronDown, BiChevronRight
 } from "react-icons/all";
 import React, { CSSProperties } from "react";
 import Skeleton from "@/components/atoms/Skeleton";
@@ -25,6 +34,7 @@ const iconMap = {
   edit: AiFillEdit,
   archive: MdArchive,
   errors: MdError,
+  copy: MdCopyAll,
   logout: MdLogout,
   unarchive: MdUnarchive,
   delete: AiFillDelete,
@@ -35,7 +45,8 @@ const iconMap = {
   important: MdStar,
   unimportant : MdStarBorder,
   close: MdClose,
-  chevronRight: MdChevronRight,
+  chevronDown: BiChevronDown,
+  chevronRight: BiChevronRight,
   calendar: MdCalendarMonth,
   filter: MdFilterAlt,
   list: MdListAlt,

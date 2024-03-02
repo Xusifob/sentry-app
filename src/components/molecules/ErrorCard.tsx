@@ -7,7 +7,8 @@ import useUpdate from "@/hooks/base/useUpdate";
 import useDelete from "@/hooks/base/useDelete";
 
 type ErrorCardProps = {
-  error : SentryError
+  error : SentryError,
+  onUpdate : (item : SentryError) => void
 }
 
 const displayDate = (date : string) : string => {
@@ -19,7 +20,7 @@ const displayDate = (date : string) : string => {
 
 };
 
-const ErrorCard : FC<ErrorCardProps> = ({ error }) => {
+const ErrorCard : FC<ErrorCardProps> = ({ error,onUpdate }) => {
 
   const [open,setOpen] = useState(false);
 
@@ -32,7 +33,7 @@ const ErrorCard : FC<ErrorCardProps> = ({ error }) => {
     <div className='flex flex-col space-y-2 p-4'>
       <div className='flex items-center space-x-2' >
         <button className='flex items-start space-x-2' onClick={() => setOpen((prevState) => !prevState)} >
-          {getIconByName('chevronRight')}
+          {getIconByName(open ? 'chevronDown' : 'chevronRight')}
           <span className='text-left text-sm font-medium leading-none sm:truncate'>
             {error.attributes.title}
           </span>
@@ -40,21 +41,25 @@ const ErrorCard : FC<ErrorCardProps> = ({ error }) => {
         <div className='flex space-x-2'>
           <Button
             type='button'
-            onClick={() => {
-              update( {
-                id : error.id,
-                archived: true },{
-                  
+            onClick={async () => {
+              await update( {
+                id : error.attributes._id,
+                archived: !error.attributes.archived
+              },{
               });
+
+              onUpdate(error);
             }}
             disabled={isDeleting}
             loading={isUpdating}
             color='primary'
-            icon='archive'
+            icon={error.attributes.archived ? 'unarchive' : 'archive' }
           />
           <Button
-            onClick={() => {
-              doDelete(error.id);
+            onClick={async () => {
+              await doDelete(error.attributes._id);
+              onUpdate(error);
+
             }}
             loading={isDeleting}
             disabled={isUpdating}
@@ -64,7 +69,7 @@ const ErrorCard : FC<ErrorCardProps> = ({ error }) => {
           />
         </div>
       </div>
-      <div className='flex items-center space-x-2 text-xs text-gray-500 dark:text-gray-400'>
+      <div className='flex items-start space-x-2 text-xs text-gray-500 dark:text-gray-400'>
         {getIconByName('calendar')}
         <time>{displayDate(error.attributes.createdDate)}</time>
       </div>
@@ -75,7 +80,13 @@ const ErrorCard : FC<ErrorCardProps> = ({ error }) => {
 
       <Link href={error.attributes.url} target='_blank' >See on Sentry</Link>
     </div>
-    {open && <div className='p-4' ></div>}
+    {open && <div className='p-4' >
+      <div className='prose max-w-none overflow-auto bg-primary-900 p-6 text-white'>
+        <pre>
+          {JSON.stringify(error.attributes.exception,null,2)}
+        </pre>
+      </div>
+    </div>}
   </div>
   );
 };

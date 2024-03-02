@@ -1,2 +1,12 @@
 {
+  "enableWebhooks": "How to Enable Webhooks on Sentry",
+  "loginSentry": "Log in to your Sentry account.",
+  "navigateSettings": "Navigate to the settings page for your project.",
+  "clickIntegrations": "Click on 'Integrations'.",
+  "findWebhooks": "Find the 'Webhooks' integration and click 'Configure'.",
+  "pasteURL": "In the 'Webhooks' settings, paste the following URL into the 'Callback URLs' field:",
+  "copyLink": "Copy link",
+  "linkCopied": "The link has been copied to your clipboard",
+  "saveChanges": "After pasting the URL, make sure to save your changes.",
+  "loading": "Loading..."
 }
