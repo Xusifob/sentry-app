@@ -19,9 +19,6 @@ const GoogleAuthCallback: FC = () => {
   const code = queryParams.get('code') as string;
   const state = queryParams.get('state') as string;
 
-  const redirect = () => {
-    console.log('redirect');
-  };
 
   const { doGet: doGetAuth } = useGetMutate<LoginType>('oauth2/google');
 
@@ -41,11 +38,10 @@ const GoogleAuthCallback: FC = () => {
       saveTokens(data);
       getMe().then((me) => {
         saveMe(me.data);
-        redirect();
       });
     });
 
-  }, [code, state,getMe,redirect, doGetAuth]);
+  }, [code, state,getMe, doGetAuth]);
 
   return (
     <OfflineLayout>

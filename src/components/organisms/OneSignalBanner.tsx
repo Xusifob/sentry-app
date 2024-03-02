@@ -26,10 +26,9 @@ const OneSignalBanner = () => {
       await enable();
       addToast('success', t('success'));
     } catch (e) {
-      console.log(e);
-
       addToast('error', t('error'));
     }
+
   }, [enable, t, addToast]);
 
 
