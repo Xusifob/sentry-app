@@ -22,7 +22,7 @@ const SplashScreen: FC = () => {
     if (data) {
       saveMe(data.data);
 
-      navigate("/student/home");
+      navigate("/errors");
       return;
     }
 
